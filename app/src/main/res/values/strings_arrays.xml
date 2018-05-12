@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sex_array">
+        <item>Masculino</item>
+        <item>Feminino</item>
+        <item>Outros</item>
+    </string-array>
+
+    <string-array name="chat">
+        <item>USP</item>
+        <item>ETEC Jorge Street</item>
+    </string-array>
+
+    <string-array name="notf">
+        <item>Anchieta visualizou o seu curriculo</item>
+    </string-array>
+
+    <string-array name="main">
+        <item>Anchieta</item>
+        <item>UFABC</item>
+        <item>Metodista</item>
+        <item>FUVEST</item>
+        <item>São Carlos</item>
+        <item>COC</item>
+    </string-array>
+</resources>

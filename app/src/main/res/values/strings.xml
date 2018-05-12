@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My-Work</string>
+
+    <string name="dbConn">jdbc:mysql://192.168.0.16:3306/my-work</string>
+    <string name="dbDriver">com.mysql.jdbc.Driver</string>
+    <string name="dbUsr">root</string>
+    <string name="dbPsw">root</string>
+
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="nav_autor">Teste</string>
+</resources>
+

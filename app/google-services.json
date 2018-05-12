@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "568833991275",
+    "firebase_url": "https://my-work-e9227.firebaseio.com",
+    "project_id": "my-work-e9227",
+    "storage_bucket": "my-work-e9227.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568833991275:android:45b9df6df1a70424",
+        "android_client_info": {
+          "package_name": "guitheodoro.gmail.com.myworkapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "568833991275-sp6s7oct8bffg90iuhvg3ll1hvlh8akm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "guitheodoro.gmail.com.myworkapp",
+            "certificate_hash": "68993df6cfca51bb003d64b884d0680628b362f6"
+          }
+        },
+        {
+          "client_id": "568833991275-sb3000o6gfmsi08rjebnl7cclhb6binm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGN_B7tglWDAN0EVsyPOYNR3IqMpp-OqI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "568833991275-sb3000o6gfmsi08rjebnl7cclhb6binm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Day Theme-->
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#5bcbff</color>
+    <color name="colorMenu">#ffffff</color>
+    <color name="colorStartUp">#00f7ff</color>
+    <color name="colorStartUpText">#353535</color>
+    <color name="colorBottomNavigation">#ffffff</color>
+    <color name="colorBottomNavigationSelected">#263383</color>
+    <!--Night Theme-->
+    <color name="colorPrimaryNight">#303f9f</color>
+    <color name="colorPrimaryDarkNight">#263383</color>
+    <color name="colorAccentNight">#377d9e</color>
+    <color name="colorMenuNight">#ffffff</color>
+    <color name="colorStartUpNight">#00f7ff</color>
+    <color name="colorStartUpTextNight">#353535</color>
+</resources>
