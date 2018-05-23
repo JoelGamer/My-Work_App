@@ -6,19 +6,20 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +27,10 @@ import static android.support.design.widget.Snackbar.LENGTH_LONG;
 
 public class MyWorkMain extends AppCompatActivity {
 
+    public ArrayList <String> dataList;
+
     private ArrayAdapter adapter;
-    private List<String> dataList;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,26 +41,22 @@ public class MyWorkMain extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.nav_main);
         ListView listView = findViewById(R.id.lstMain);
-        
         listView.setAdapter(adapter);
+
+        getAllDocs();
     }
 
-    private void UpdateList(){
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference().child("/Empresas");
-        final TextView item = findViewById(R.id.Itemname);
-
-        myRef.addValueEventListener(new ValueEventListener() {
+    private void getAllDocs() {
+        db.collection("Perfil das Empresas").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()){
-                    dataList.add(data.toString());
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (DocumentSnapshot document : task.getResult()) {
+                        dataList.add(document.getData().toString());
+                    }
+                } else {
+                    Log.w("FAIL", "Error getting documents.", task.getException());
                 }
-                adapter = new ArrayAdapter<>(MyWorkMain.this, R.layout.my_work_main_list, R.id.Itemname, dataList);
-            }
-            @Override
-            public void onCancelled(DatabaseError error) {
-                System.out.println("The read failed: " + error.getCode());
             }
         });
     }
@@ -68,25 +67,63 @@ public class MyWorkMain extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             ListView lstMain = findViewById(R.id.lstMain);
+            View fragPerfil = findViewById(R.id.fragPerfil);
+            View fragChat = findViewById(R.id.fragChat);
+            View fragNotf = findViewById(R.id.fragNotf);
+            View fragMain = findViewById(R.id.fragMain);
+            View fragCurr = findViewById(R.id.fragCurr);
+
             switch (item.getItemId()) {
                 case R.id.nav_main:
-                    UpdateList();
+                    lstMain.setVisibility(View.VISIBLE);
+                    fragMain.setVisibility(View.VISIBLE);
+                    fragChat.setVisibility(View.INVISIBLE);
+                    fragCurr.setVisibility(View.INVISIBLE);
+                    fragNotf.setVisibility(View.INVISIBLE);
+                    fragPerfil.setVisibility(View.INVISIBLE);
+
+                    adapter = new ArrayAdapter<>(MyWorkMain.this, R.layout.my_work_main_list, R.id.Itemname, dataList);
+                    lstMain.setAdapter(adapter);
                     return true;
                 case R.id.nav_chat:
                     lstMain.setVisibility(View.VISIBLE);
-                    adapter = new ArrayAdapter<>(MyWorkMain.this, R.layout.my_work_main_list, R.id.Itemname, getResources().getStringArray(R.array.chat));
+                    fragMain.setVisibility(View.INVISIBLE);
+                    fragChat.setVisibility(View.VISIBLE);
+                    fragCurr.setVisibility(View.INVISIBLE);
+                    fragNotf.setVisibility(View.INVISIBLE);
+                    fragPerfil.setVisibility(View.INVISIBLE);
+
+                    adapter = new ArrayAdapter<>(MyWorkMain.this, R.layout.my_work_main_list, R.id.Itemname, dataList);
                     lstMain.setAdapter(adapter);
                     return true;
                 case R.id.nav_notf:
                     lstMain.setVisibility(View.VISIBLE);
-                    adapter = new ArrayAdapter<>(MyWorkMain.this, R.layout.my_work_main_list, R.id.Itemname, getResources().getStringArray(R.array.notf));
+                    fragMain.setVisibility(View.INVISIBLE);
+                    fragChat.setVisibility(View.INVISIBLE);
+                    fragCurr.setVisibility(View.INVISIBLE);
+                    fragNotf.setVisibility(View.VISIBLE);
+                    fragPerfil.setVisibility(View.INVISIBLE);
+
+                    adapter = new ArrayAdapter<>(MyWorkMain.this, R.layout.my_work_main_list, R.id.Itemname, dataList);
                     lstMain.setAdapter(adapter);
                     return true;
                 case R.id.nav_curr:
                     lstMain.setVisibility(View.INVISIBLE);
+                    fragMain.setVisibility(View.INVISIBLE);
+                    fragChat.setVisibility(View.INVISIBLE);
+                    fragCurr.setVisibility(View.VISIBLE);
+                    fragNotf.setVisibility(View.INVISIBLE);
+                    fragPerfil.setVisibility(View.INVISIBLE);
+
                     return true;
                 case R.id.nav_perf:
                     lstMain.setVisibility(View.INVISIBLE);
+                    fragMain.setVisibility(View.INVISIBLE);
+                    fragChat.setVisibility(View.INVISIBLE);
+                    fragCurr.setVisibility(View.INVISIBLE);
+                    fragNotf.setVisibility(View.INVISIBLE);
+                    fragPerfil.setVisibility(View.VISIBLE);
+
                     return true;
             }
             return false;

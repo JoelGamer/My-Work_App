@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My-Work</string>
+    <string name="logout">Desconectar</string>
+    <string name="section_format">Olá mundo da seleção: %1$d</string>
+    <string name="Email">E-mail</string>
+    <string name="Telefone">Telefone</string>
+    <string name="lblSelect">Selecione o metodo de login</string>
+    <string name="settings">Configurações</string>
+    <string name="nav_autor">Test</string>
+</resources>

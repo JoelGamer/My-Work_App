@@ -74,38 +74,6 @@ public class MyWorkLogin extends AppCompatActivity {
         Snackbar.make(findViewById(R.id.MyWorkLoginLayout), "Ainda não tem a autoria!", LENGTH_LONG).show();
     }
 
-    private void sqlConn(){
-        String connUrl = getString(R.string.dbConn);
-        String connDrv = getString(R.string.dbDriver);
-        String connUsr = getString(R.string.dbUsr);
-        String connPsw = getString(R.string.dbPsw);
-
-        EditText usr = findViewById(R.id.txtUsr);
-        EditText senha = findViewById(R.id.txtSenha);
-
-        String usrf = usr.getText().toString();
-        String senhaf = senha.getText().toString();
-
-        try{
-            Class.forName(connDrv);
-            Connection conn = DriverManager.getConnection(connUrl,connUsr,connPsw);
-
-            Statement statement = conn.createStatement();
-            ResultSet resultat = statement.executeQuery("SELECT `usr_nome`, `usr_sen` FROM `my-work`.`usuario` WHERE `usr_nome` = '"+ usrf +"' && `usr_sen` = '"+ senhaf +"';");
-
-            while (resultat.next()){
-                String resultu = resultat.getString(1);
-                String results = resultat.getString(2);
-                loginConf(resultu,results);
-            }
-            resultat.close();
-            statement.close();
-        }
-        catch (SQLException | ClassNotFoundException ex){
-            ex.printStackTrace();
-        }
-    }
-
     private void Logf(){
         Button btnLogin = findViewById(R.id.btnLogin);
         final EditText senha = findViewById(R.id.txtSenha);

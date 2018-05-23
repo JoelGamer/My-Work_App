@@ -23,7 +23,9 @@
         <activity android:name=".MyWorkSettings" />
         <activity android:name=".MyWorkMain" />
         <activity android:name=".MyWorkLogin" />
-        <activity android:name=".MyWorkRegisterFirebase"></activity>
+        <activity android:name=".MyWorkRegisterFirebase" />
+        <activity android:name=".MyWorkLogSelector" />
+        <activity android:name=".MyWorkLoginTel"></activity>
     </application>
 
 </manifest>
