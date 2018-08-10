@@ -15,6 +15,7 @@ import android.widget.ListView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -39,11 +40,28 @@ public class MyWorkMain extends AppCompatActivity {
 
         BottomNavigationView navigation = findViewById(R.id.nav_menu);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        navigation.setSelectedItemId(R.id.nav_main);
+        navigation.setSelectedItemId(R.id.nav_perf);
         ListView listView = findViewById(R.id.lstMain);
         listView.setAdapter(adapter);
 
-        getAllDocs();
+        getAllDocs2();
+    }
+
+    private void getAllDocs2() {
+        DocumentReference docRef = db.collection("Perfil das Empresas").document("Anchieta");
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document != null && document.exists()) {
+                        dataList.add(document.getData().toString());
+                    }
+                } else {
+                    Log.d("FAIL", "get failed with ", task.getException());
+                }
+            }
+        });
     }
 
     private void getAllDocs() {

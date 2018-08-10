@@ -151,7 +151,7 @@ public class MyWorkLogin extends AppCompatActivity {
                             if (user != null) {
                                 boolean emailVerified = user.isEmailVerified();
                                 if(emailVerified){
-                                    Intent intent = new Intent(MyWorkLogin.this, MyWorkMain.class);
+                                    Intent intent = new Intent(MyWorkLogin.this, MainActivity.class);
                                     startActivity(intent);
                                 }else{
                                     Snackbar.make(findViewById(R.id.MyWorkLoginLayout), "Você precisa confirmar o seu email!", LENGTH_LONG).show();
