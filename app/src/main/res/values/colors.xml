@@ -15,5 +15,7 @@
     <color name="colorAccentNight">#377d9e</color>
     <color name="colorMenuNight">#ffffff</color>
     <color name="colorStartUpNight">#00f7ff</color>
+    <color name="colorText">#ffffff</color>
+    <color name="colorBG">#212121</color>
     <color name="colorStartUpTextNight">#353535</color>
 </resources>

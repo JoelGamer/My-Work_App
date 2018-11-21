@@ -7,115 +7,28 @@
     android:layout_height="match_parent"
     tools:context="guitheodoro.gmail.com.myworkapp.MyWorkMain">
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="56dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <fragment
-            android:id="@+id/fragPerfil"
-            android:name="android.app.ListFragment"
-            android:layout_width="391dp"
-            android:layout_height="504dp"
-            android:layout_marginBottom="484dp"
-            android:layout_marginEnd="312dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout="@layout/my_work_main_perfil" />
-
-        <fragment
-            android:id="@+id/fragCurr"
-            android:name="android.app.ListFragment"
-            android:layout_width="391dp"
-            android:layout_height="504dp"
-            android:layout_marginBottom="484dp"
-            android:layout_marginEnd="312dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout="@layout/my_work_main_curr" />
-
-        <fragment
-            android:id="@+id/fragChat"
-            android:name="android.app.ListFragment"
-            android:layout_width="391dp"
-            android:layout_height="504dp"
-            android:layout_marginBottom="484dp"
-            android:layout_marginEnd="312dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout="@layout/my_work_main_curr" />
-
-        <fragment
-            android:id="@+id/fragNotf"
-            android:name="android.app.ListFragment"
-            android:layout_width="391dp"
-            android:layout_height="504dp"
-            android:layout_marginBottom="484dp"
-            android:layout_marginEnd="312dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout="@layout/my_work_main_curr" />
-
-        <fragment
-            android:id="@+id/fragMain"
-            android:name="android.app.ListFragment"
-            android:layout_width="391dp"
-            android:layout_height="504dp"
-            android:layout_marginBottom="484dp"
-            android:layout_marginEnd="312dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout="@layout/my_work_main_main" />
-    </android.support.constraint.ConstraintLayout>
-
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/nav_menu"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/colorPrimary"
+        android:visibility="visible"
         app:itemIconTint="@drawable/bottom_nav_selector"
         app:itemTextColor="@drawable/bottom_nav_selector"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/swipe_refresh"
+        app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/main_nav">
 
     </android.support.design.widget.BottomNavigationView>
 
-    <ListView
-        android:id="@+id/lstMain"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/Perfil"
         android:layout_width="0dp"
-        android:layout_height="504dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="57dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -123,5 +36,201 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageView
+            android:id="@+id/imgPerfil"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:clickable="true"
+            android:onClick="Click"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView32"
+            app:srcCompat="@drawable/fui_idp_button_background_twitter" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/baseline_add_black_18dp"
+            android:backgroundTint="@android:color/white"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/imgPerfil"
+            app:layout_constraintEnd_toEndOf="@+id/imgPerfil"
+            app:layout_constraintStart_toStartOf="@+id/imgPerfil"
+            app:layout_constraintTop_toTopOf="@+id/imgPerfil" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Perfil"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Nome:"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgPerfil" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Email:"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Data de nascimento:"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Idade:"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Telefone:"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Sexo:"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+        <TextView
+            android:id="@+id/lblNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Name_Space"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView33"
+            app:layout_constraintTop_toBottomOf="@+id/imgPerfil" />
+
+        <TextView
+            android:id="@+id/lblEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="email9999@mywork.com"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView34"
+            app:layout_constraintTop_toBottomOf="@+id/lblNome" />
+
+        <TextView
+            android:id="@+id/lblDdN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="00/00/0000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView35"
+            app:layout_constraintTop_toBottomOf="@+id/lblEmail" />
+
+        <TextView
+            android:id="@+id/lbl_Idade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="00 anos"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView36"
+            app:layout_constraintTop_toBottomOf="@+id/lblDdN" />
+
+        <TextView
+            android:id="@+id/lblTelefone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="(11)98765-4321"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView37"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_Idade" />
+
+        <TextView
+            android:id="@+id/lblSexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Masculino"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/textView38"
+            app:layout_constraintTop_toBottomOf="@+id/lblTelefone" />
     </android.support.constraint.ConstraintLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ListView
+            android:id="@+id/lstMain"
+            android:layout_width="0dp"
+            android:layout_height="504dp"
+            android:layout_marginBottom="57dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</android.support.constraint.ConstraintLayout>

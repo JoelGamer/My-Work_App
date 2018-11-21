@@ -18,6 +18,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/lblLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:onClick="Click"
+        android:text="Já tem uma conta?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar" />
+
     <EditText
         android:id="@+id/txtNome"
         android:layout_width="322dp"
@@ -39,14 +53,14 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNome" />
 
     <EditText
         android:id="@+id/txtCSenha"
@@ -54,14 +68,14 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Confirmar Senha"
         android:inputType="textPassword"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtSenha" />
 
     <EditText
         android:id="@+id/txtEmail"
@@ -69,14 +83,14 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCSenha" />
 
     <EditText
         android:id="@+id/txtTelefone"
@@ -84,40 +98,41 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Telefone"
         android:inputType="phone"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
+
+    <EditText
+        android:id="@+id/txtData"
+        android:layout_width="322dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Data de Nascimento"
+        android:inputType="date"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTelefone" />
 
     <Button
         android:id="@+id/btnRegistrar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="416dp"
+        android:layout_marginTop="8dp"
         android:text="Registrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/lblLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="468dp"
-        android:clickable="true"
-        android:onClick="Click"
-        android:text="Já tem uma conta?"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/spnSex" />
 
     <Spinner
         android:id="@+id/spnSex"
@@ -125,63 +140,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="375dp"
+        android:layout_marginTop="8dp"
+        android:entries="@array/sex_array"
         android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="308dp"
-        android:text="Data de nascimento:"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spnDia"
-        android:layout_width="60dp"
-        android:layout_height="26dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="340dp"
-        android:spinnerMode="dialog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spnMes"
-        android:layout_width="60dp"
-        android:layout_height="26dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="340dp"
-        android:spinnerMode="dialog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spnAno"
-        android:layout_width="60dp"
-        android:layout_height="26dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="340dp"
-        android:spinnerMode="dialog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtData" />
 
 </android.support.constraint.ConstraintLayout>

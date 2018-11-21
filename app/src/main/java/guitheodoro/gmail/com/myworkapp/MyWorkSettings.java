@@ -7,6 +7,8 @@ import android.widget.Switch;
 
 public class MyWorkSettings extends AppCompatActivity {
 
+    public static final String PREFS_NAME = "MyPrefsFile1";
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
